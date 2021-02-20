@@ -1,7 +1,7 @@
 let localStream;//グローバル変数として用意
 
 const peer = new Peer({
-    key: '320e8f26-3e2a-4804-b922-e59bd58b7d37',
+    key: '320e8f26-3e2a-4804-b922-e59bd58b7d37',// PeerKey (各自変更必須)
     debug: 1
 });
 
