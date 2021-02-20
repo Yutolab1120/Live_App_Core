@@ -27,7 +27,7 @@ document.getElementById('camera').onclick = () => {
             const videoElm = document.getElementById('my-video')
             videoElm.srcObject = stream;
             videoElm.play();
-            localStream = stream;
+            localStream = stream;//カメラをグローバル変数に
             const theirID = document.getElementById('their-id').value;
             const mediaConnection = peer.call(theirID, localStream, { videoBandwidth: 14000 });
         });
