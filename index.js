@@ -7,6 +7,7 @@ let port = process.env.PORT || 8000;
 
 app.use(express.static('public'));
 
+
 app.get('/', (req, res) => {
     res.render('index.ejs');
 });
@@ -37,6 +38,7 @@ io.on('connection', (socket) => {
     });
 });
 
+
 http.listen(port, function () {
-    console.log('Funny_Prott > http接続を開始しました。');
+    console.log('Funny_Prott > localhost:8000 で接続を開始しました。');
 });
