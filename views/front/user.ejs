@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="/img/a_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/img/icon.png" sizes="192x192" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/css/uikit.min.css" />
+    <title>Funny</title>
+    <link rel="stylesheet" href="/style/custom.css">
+        <style>
+            h3{
+                text-align: center;
+            }
+        </style>
+</head>
+
+<body>
+    <nav id="bg1" class="uk-navbar-container" uk-navbar uk-sticky>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href=""><img src="/img/funny (1).png" width="100px;"></a></li>
+                <li>
+                    <a href="/front/lives">配信</a>
+                </li>
+                <li id="login_set"></li>
+            </ul>
+        </div>
+    </nav>
+<br>
+<div class="uk-container">
+<article class="uk-comment　uk-comment-primary uk-card cote_nn uk-card-default uk-card-body">
+            <h3><b>処理中です...</b><br><small>しばらくお待ちください。</small><br><br><span class="uk-margin-small-right" uk-spinner="ratio: 3"></span></h3>
+    <header class="uk-comment-header">
+        <div class="uk-grid-medium uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+                        <img class="uk-comment-avatar" style="border-radius: 45%;" src="/img/dot-main.png" width="100" height="100" alt="">
+            </div>
+            <div class="uk-width-expand">
+                <h2 class="uk-comment-title uk-margin-remove"><b><div id="info"></div></b></h2>
+                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                    <li><a>Funny ID</a></li>
+                    <li><a href="/front/login">ログアウト</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</article>
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit-icons.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-auth.js"></script>
+    <script src="/js/config.js"></script>
+    <script>
+                firebase.auth().onAuthStateChanged((user) => {
+                    let h3 = document.querySelector('h3');
+                    let info = document.querySelector('#info');
+                    let login_set = document.querySelector('#login_set');
+
+                    if (user) {
+                        h3.innerText = '';
+                        info.innerHTML = `${user.displayName}`;
+                        login_set.innerHTML = '<a href="/front/user">ユーザー</a>';
+                        console.log(user);
+                    }
+                    else {
+                        h3.innerText = "ログインに失敗しました。もう一度お試しください。"
+                        info.innerHTML = 'ログインしていません。';
+                        login_set.innerHTML = '<a href="/front/login">ログイン</a>';
+                    }
+                });
+
+    </script>
+    <script>
+        // ServiceWorker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>

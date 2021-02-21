@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/img/a_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/img/icon.png" sizes="192x192" />
+    <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style/custom.css">
+    <title>Funny - よくある質問</title>
+</head>
+
+<body>
+
+    <nav id="bg1" class="uk-navbar-container" uk-navbar uk-sticky>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="/"><img src="/img/funny (1).png" width="100px;"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="uk-container uk-1"><br>
+        <h3 align="center"><b>よくある質問</b>
+            <p class="box">
+        </h3>
+        <p align="center"><b>Funnyについての基本的なQ＆Aをまとめました。</b></p>
+
+        <h4><b>Q. Funnyでできることとは？</b></h4>
+        <p>A. 現時点でできることは以下のことになります。</p>
+        <ul>
+            <li>ノーマル配信</li>
+            <p>シンプルなワンクリックで開始できる画面配信です。対応ブラウザはPC版Chrome, Safari, MicrosoftEdge, Firefox等になります。</p>
+            <li>カメラ配信</li>
+            <p>インカメラを使った配信が行えます。対応ブラウザはモバイル・PC版Chrome, Safari, MicrosoftEdge, Firefox等になります。</p>
+            <li>ラジオ配信</li>
+            <p>音声だけを手軽に配信できる、ラジオ配信ができます。対応ブラウザはモバイル・PC版Chrome, Safari, MicrosoftEdge, Firefox等になります。</p>
+            <li>低遅延チャット</li>
+            <p>Firebaseを通した低遅延でほぼリアルタイムなチャットを使用できます。(Funnyにログインしている必要があります。)</p>
+        </ul>
+
+        <h4><b>Q. ユーザー名の変更はできる？</b></h4>
+        <p>A. 現時点では対応していません。</p>
+
+        <h4><b>Q. 利用料金はいくら？</b></h4>
+        <p>A. 個人開発ですが現時点では全て無料でご利用いただけます。</p>
+        
+        <h4><b>Q. FunnyのOSS化は？</b></h4>
+        <p>A. 現時点では、Funnyのコア部分をGitHubで公開しています。<br>beta版についてもここで公開しています。テストユーザーはforkしてテスターしていただけると幸いです。</p>
+        <p>Yutolab1120/Live_Platform_Core/: <a href="https://github.com/yutolab1120/Live_Platform_core/">https://github.com/yutolab1120/Live_Platform_core/</a></p>
+
+    </div>
+
+
+    <h5></h5>
+    <script>
+        // ServiceWorker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>

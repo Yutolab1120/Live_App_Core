@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="/img/a_icon.png">
+    <link rel="apple-touch-icon" href="/img/icon.png" sizes="192x192" />
+    <title>Firestore Chat2</title>
+    <link href="/style/chat.css" rel="stylesheet">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- 発言が表示される領域 -->
+    <ul id="chatlog"></ul>
+
+    <!-- 入力フォーム -->
+
+    <form id="form1" class="hide">
+        <div id="uname"></div>
+        <input autocomplete="off"　type="text" id="msg" placeholder="  チャットに参加しよう！"><button type="button" id="sbmt" ><i class="fa fa-paper-plane "></i></button>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-firestore.js"></script>
+    <script src="js/config.js"></script>
+    
+    <script>
+
+        var Chat = {
+            user: {
+                name: null
+            },
+            db: null,
+            messagesRef: null,
+
+            init: () => {
+                this.db = firebase.firestore();
+                this.messagesRef = this.db.collection("chatroom").doc("room2").collection("messages");
+
+                this.messagesRef.orderBy("date", "asc").limit(20).onSnapshot((snapshot) => {
+                    snapshot.docChanges().forEach((change) => {
+
+                        if (change.type === 'added') {
+                            Chat.addLog(change.doc.id, change.doc.data());
+                        }
+                        else if (change.type === 'modified') {
+                            Chat.modLog(change.doc.id, change.doc.data());
+                        }
+                        else if (change.type === 'removed') {
+                            Chat.removeLog(change.doc.id);
+                        }
+                    });
+                });
+
+                document.getElementById("sbmt").addEventListener("click", () => {
+                    let msg = document.getElementById("msg").value;
+                    if (msg.length !== 0) {
+                        Chat.sendLog(msg);
+                    }
+                });
+                document.getElementById("form1").addEventListener("submit", (e) => {
+                    e.preventDefault();
+                });
+            },
+
+            /**
+             * Firestoreへ送信
+             *
+             * @param {string} str 送信内容
+             **/
+            sendLog: (str) => {
+                this.messagesRef.add({
+                    name: Chat.user.name,
+                    msg: str,
+                    date: new Date().getTime()
+                })
+                    .then(() => {
+                        let msg = document.getElementById("msg");
+                        msg.focus();
+                        msg.value = "";
+                    })
+                    .catch((error) => {
+                        console.log(`追加に失敗しました (${error})`);
+                    });
+            },
+
+            /**
+             * 描画エリアにログを追加
+             *
+             * @param {string} id
+             * @param {object} data
+             **/
+            addLog: (id, data) => {
+                // 追加するHTMLを作成
+                let log = `${data.name}> ${data.msg}`;
+                let li = document.createElement('li');
+                li.id = id;
+                li.appendChild(document.createTextNode(log));
+
+                // 表示エリアへ追加
+                let chatlog = document.getElementById("chatlog");
+                chatlog.insertBefore(li, chatlog.firstChild);
+            },
+
+            /**
+             * 描画エリアのログを変更
+             *
+             * @param {string} id
+             * @param {object} data
+             **/
+            modLog: (id, data) => {
+                let log = document.getElementById(id);
+                if (log !== null) {
+                    log.innerText = `${data.name}> ${data.msg}`;
+                }
+            },
+
+            /**
+             * 描画エリアのログを削除
+             *
+             * @param {string} id
+             **/
+            removeLog: (id) => {
+                let log = document.getElementById(id);
+                if (log !== null) {
+                    log.parentNode.removeChild(log);
+                }
+            }
+        };  // Chat
+
+
+        /**
+         * 描画エリアのログを変更
+         *
+         * @param {string} id
+         * @param {object} data
+         **/
+        firebase.auth().onAuthStateChanged((user) => {
+            // ログイン状態なら書き込みフォームを開放
+            if (user !== '匿名') {
+                //表示
+                document.getElementById("chatlog").classList.remove("hide");
+                document.getElementById("form1").classList.remove("hide");
+                // ユーザー名を確保
+                Chat.user.name = user.displayName;
+                document.getElementById("uname").innerText = Chat.user.name;
+            }
+
+            // Firestore処理開始
+            Chat.init();
+        });
+
+    </script>
+    <script>
+        // ServiceWorker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>

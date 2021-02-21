@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/img/a_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/img/icon.png" sizes="192x192" />
+    <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
+<meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style/custom.css">
+    <title>Funny</title>
+</head>
+
+<body>
+  
+    <nav id="bg1" class="uk-navbar-container" uk-navbar uk-sticky>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href=""><img src="/img/funny (1).png" width="100px;"></a></li>
+                <li>
+                    <a href="/front/lives">配信</a>
+                </li>
+                <li id="login_set"></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="uk-container">
+
+        <div class="uk-text-center" uk-grid>
+<br>
+            <div class="uk-width-1-2-ee">
+                <ul uk-tab>
+                    <li><a href="#"><i class="fa fa-video-camera fa-lg"></i>&nbsp;&nbsp;<b>ライブ</b></a></li>
+                    <li><a href="#"><i class="fa fa-dashboard fa-lg"></i>&nbsp;&nbsp;<b>作成</b></a></li>
+                </ul>
+
+                <ul class="uk-switcher uk-margin">
+                    <li><video id="their-video" class="lives" poster="/img/live-off.png" autoplay muted playsinline
+                controls></video></li>
+                    <li><video id="my-video" class="lives" poster="/img/live-off.png" autoplay muted playsinline
+                controls></video></li>
+                </ul>
+            </div>
+
+            <div class="uk-width-1-2-cc">
+                <ul class="uk-flex-center" uk-tab>
+                    <li><a href="#"><i class="fa fa-commenting fa-lg"></i></a></li>
+                    <li><a href="#"><i class="fa fa-signal fa-lg "></i></a></li>
+                    <li><a href="#"><i class="fa fa-wrench fa-lg "></i></a></li>
+                </ul>
+
+                <ul class="uk-switcher uk-margin">
+                    <li><iframe src="/chat" id="chat"></iframe></li>
+                    <li>
+                        <h6>受信設定</h6>
+                        <p class="box"></p>
+                        <input id="their-id" type="text" width="100%" placeholder="  相手の配信Keyを入力"><br><br>
+                        <button id="make-call" class="setting uk-width-1-1 uk-margin-small-bottom">配信に接続</button>
+
+                    </li>
+                    <li>
+                        <h6>配信設定</h6>
+                        <p class="box"></p>
+                        <p id="my-id"></p>
+                        <p class="box"></p>
+                        <button id="share" class="setting uk-width-1-1 uk-margin-small-bottom">ノーマル配信</button>
+                        <button id="camera" class="setting  uk-width-1-1 uk-margin-small-bottom">カメラ配信</button>
+                        <button id="radio" class="setting uk-width-1-1 uk-margin-small-bottom">ラジオ配信</button>
+                        <a href=""><button id="stop" class="setting2 uk-width-1-1 uk-margin-small-bottom">配信終了</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div><br>
+        <div class="uk-comment-primary uk-card uk-card-default uk-card-body cote_n uk-section uk-section-color uk-light">
+            <div class="uk-container"><h4 style="color:#000;"><div id="info"><span class="uk-margin-small-right" uk-spinner="ratio: 1"></span>処理中...</div></h4>
+        </div>
+    </div>
+<h5></h5>
+
+    <script src="/js/live.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-auth.js"></script>
+        <script src="/js/config.js"></script>
+        <script>
+            firebase.auth().onAuthStateChanged((user) => {
+                let h5 = document.querySelector('h5');
+                let info = document.querySelector('#info');
+                let login_set = document.querySelector('#login_set');
+
+                if (user) {
+                    h5.innerText = '';
+                    info.innerHTML = `${user.displayName}`;
+                    login_set.innerHTML = '<a href="/front/user">ユーザー</a>';
+                    console.log(user);
+                }
+                else {
+                    info.innerHTML = 'ログインしていません。'; 
+                    login_set.innerHTML = '<a href="/front/login">ログイン</a>';
+                }
+            });
+
+        </script>
+    <script>
+        // ServiceWorker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

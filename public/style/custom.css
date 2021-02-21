@@ -1,0 +1,126 @@
+:root{
+    background:#F0F8FC;
+    font-weight: bold;
+}
+nav{
+    background: rgb(255, 255, 255);
+}
+#bg1{
+    background: rgb(255, 255, 255);
+}
+.uk-color{
+    height: 70px;
+}
+*:focus {
+    outline: none;
+}
+.setting {
+    border: none;
+    border-radius: 30px;
+    width: 100%;
+    height: 50px;
+    color:#ffffff;
+    background: #52baee;
+    font-size: 15px;
+    font-weight: bold;
+}
+.setting2 {
+    border: none;
+    border-radius: 30px;
+    width: 100%;
+    height: 50px;
+    color:#ffffff;
+    background: #ff4433;
+    font-size: 15px;
+    font-weight: bold;
+}
+input{
+    width: 100%;
+    height:50px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    background: #ffffff;
+    box-shadow: 0 3px 0 -0px rgb(71, 194, 255);
+    font-size: 16px;
+}
+.uk-width-1-2-ee{
+    width: 60%;
+}
+.lives{
+    width: 100%;
+}
+#chat{
+    width: 100%;
+    height: 395px;
+}
+.uk-width-1-2-cc{
+    width: 35%;
+}
+#bb{
+    font-size: 30px;
+    color:black;
+}
+p{
+    font-weight: lighter;
+    color:rgb(53, 53, 53);
+}
+.uk-1{
+    color:rgb(53, 53, 53);
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom:30px ;
+    background: rgb(255, 255, 255);
+}
+p.box {
+   border-bottom: 1px solid rgb(240, 240, 240);
+}
+h3{
+    font-weight: bold;
+}
+h2{
+    color: #000;
+}
+h5{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+h6{
+    font-weight: bold;
+}
+.img-a{
+    border-radius: 45%;
+}
+p{
+    color:rgb(0, 0, 0);
+    font-size: 15px;
+}
+.cote_n{
+    width: 95%;
+    border: none;
+    box-shadow: 0 4px 0 -0px rgb(233, 233, 233);
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    font-weight: bold;
+}
+.cote_nn{
+    width: 95%;
+    border: none;
+    box-shadow: 0 4px 0 -0px rgb(233, 233, 233);
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    font-weight: bold;
+}
+@media screen and (max-width:1300px){
+    .uk-width-1-2-ee{
+        width: 100%;
+    }
+    .uk-width-1-2-cc{   
+        width: 100%;
+    }
+    .cote_n{
+        display: none;
+    }
+}

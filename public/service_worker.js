@@ -27,5 +27,4 @@ self.addEventListener('fetch', function(event) {
                 return response ? response : fetch(event.request);
             })
     );
-  
 });

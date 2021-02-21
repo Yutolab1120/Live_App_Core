@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/img/a_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/img/icon.png" sizes="192x192" />
+    <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style/custom.css">
+    <title>Funny - 使い方</title>
+    <style>
+        .youtube2 {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+        .youtube2 iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="bg1" class="uk-navbar-container" uk-navbar uk-sticky>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="/"><img src="/img/funny (1).png" width="100px;"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="uk-container uk-1"><br>
+        <h3 align="center"><b>使い方</b>
+            <p class="box">
+        </h3>
+        <p align="center"><b>Funnyプロモーションビデオ</b></p>
+        <div class="youtube2">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vSlNE-dXKVw?controls=0" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <p>制作/動画: Yutolab1120</p>
+    </div>
+
+
+    <h5></h5>
+    <script>
+        // ServiceWorker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>

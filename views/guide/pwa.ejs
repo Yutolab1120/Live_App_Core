@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/img/a_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/img/icon.png" sizes="192x192" />
+    <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.15/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style/custom.css">
+    <title>Funny - PWAインストール</title>
+</head>
+
+<body>
+
+    <nav id="bg1" class="uk-navbar-container" uk-navbar uk-sticky>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="/"><img src="/img/funny (1).png" width="100px;"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="uk-container uk-1"><br>
+        <h3 align="center"><b>PWAアプリのインストールガイド</b>
+            <p class="box">
+        </h3>
+        <h4><b>iOS: PWAアプリのインストール手順</b></h4>
+        <ul>
+            <li>Safariでhttps://funny-prott.herokuapp.comを開きます。</li>
+            <li>ブラウザ画面下にあるタブの「共有ボタン」をタップ。</li>
+            <li>スクロールして「ホーム画面に追加」をタップ。</li>
+            <li>Funnyアイコンが読み込まれたら右上の「追加」をタップする。</li><br>
+            <img style="width:250px; box-shadow: 0 4px 0 -0px rgb(233, 233, 233); border-radius: 30%;" src="/img/icon.png">
+            <p>これで、ホーム画面に上のようなFunnyアイコンが表示されたら完了です。</p>
+        </ul>
+
+        <h4><b>AndroidのPWAインストール方法</b></h4>
+        <ul>
+            <li>Safariでhttps://funny-prott.herokuapp.comを開きます。</li>
+            <li>ブラウザ画面下にあるタブの「共有ボタン」をタップ。</li>
+            <li>スクロールして「ホーム画面に追加」をタップ。</li>
+            <li>Funnyアイコンが読み込まれたら右上の「追加」をタップする。</li><br>
+            <img style="width:250px; box-shadow: 0 4px 0 -0px rgb(233, 233, 233); border-radius: 80%;" src="/img/dot-main.png">
+            <p>これで、ホーム画面に上のようなFunnyアイコンが表示されたら完了です。</p>
+        </ul>
+
+    </div>
+
+
+    <h5></h5>
+    <script>
+        // ServiceWorker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>

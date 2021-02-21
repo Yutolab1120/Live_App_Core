@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="/manifest.json">
+        <link rel="icon" type="image/png" href="/img/a_icon.png">
+    <link rel="apple-touch-icon" href="/img/icon.png" sizes="192x192" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Funny - ホーム</title>
+    <link href="style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.5/dist/css/uikit.min.css" />
+</head>
+<body>
+    <div class="">
+        <nav class="funny-c " uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="/"><img src="img/funny (1).png" width="130px;"></a></li>
+                </ul>
+    
+            </div>
+        </nav>
+    </div>
+
+    <div class="funny-c2">
+        <div class="uk-section uk-light1">
+            <div class="uk-container">
+                <h1 style="margin-top: 40px;"><b>Maximize your personality.</b></h1>
+                <p style="margin-top: 10px; margin-bottom: 8px;">誰もが混じれるプラットフォーム</p><br>
+                <a href="#modal-center" style="border-radius: 10px; margin-bottom: 150px; background: #85c8ff;" class="uk-button uk-button-primary" uk-toggle><b>SetUp</b></a>
+                <div id="modal-center" class="uk-flex-top" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                <h2 class="uk-modal-title">Funnyへようこそ！</h2>
+                <p>Funnyを楽しんでいただくためにはアカウント登録(無料)が必要です。<br>
+                    また、この先WEBとPWAアプリどちらで続行するか選択できます。<br>
+                    ※ PWAはいつでもご利用になれます。</p>
+                <p class="uk-text-right">
+                    <a href="/front/login"><button class="setting" type="button">WEBサイトで続行</button></a><br><br>
+                    <a href="/guide/pwa"><button class="setting1" type="button">PWAアプリで続行</button></a>
+                </p>
+                    </div>
+                </div>
+                <a href="/about"><button style="border-radius: 10px; margin-bottom: 150px;" class="uk-button uk-button-default "><b>About Funny</b></button></a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="funny-c3 uk-container"><br>
+        <h2><b>Service</b></h2>
+        <p style="font-size: 20px;"><b>Funny</b>は<b>「誰もが混じれる」</b>を提供するプラットフォームです。</p>
+        <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title"><span uk-icon="icon: video-camera"></span>&nbsp;WebRTCを搭載</h3>
+                    <p>低遅延で豊富なライブを視聴できます。</p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title"><span uk-icon="icon: comments"></span>&nbsp;低遅延チャット</h3>
+                    <p>低遅延で利用者とトークできます</p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title"><span uk-icon="icon: file-edit"></span>&nbsp;安心・安全</h3>
+                    <p>Keyは毎回ランダム生成されます。</p>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+<br><br>
+
+    <div class="funny-c2-2">
+        <div class="uk-section">
+            <div class="uk-container">
+            <h1 style="margin-top: 30px; margin-bottom: 10px;"><b>Join Funny</b></h1>
+                <h6 style="margin-top: 10px; margin-bottom: 30px;">さあ、世界に混じろう。</h6>
+                <a href="/front/login"><button style="background: #85c8ff; border-radius: 10px;" class="uk-button uk-button-primary"><b>今すぐはじめる</b></button></a><br><br>
+            </div>
+        </div>
+</div>
+
+    <div class="funny-c2-1">
+        <div class="uk-section uk-light">
+            <div class="uk-container">
+                <img src="/img/logo1.png" width="130px;">
+                <h5 style="margin-top: 50px;">
+                <a href="/about"><b>Funny について</b></a><br><br>
+                <a href="/guide/q&a"><b>よくある質問</b></a><br><br>
+                <a href="https://yutolab1120.github.io"><b>運営者について</b></a><br><br>
+                <a href="/guide"><b>使い方</b></a><br><br>
+                <a href="/kiyaku"><b>利用規約</b></a><br><br>
+                <a href="/privacypolicy"><b>プライバシーポリシー</b></a></h5>
+
+                <p style="margin-top: 20px; margin-bottom: 50px;">©︎ funny-prott.herokuapp.com</p>
+    
+    
+               
+                     
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.5/dist/js/uikit-icons.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.11/seedrandom.min.js"></script>
+    <script>
+        // ServiceWorker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>

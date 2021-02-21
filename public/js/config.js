@@ -1,4 +1,3 @@
-// firebase のfirebaseConfig をそのままペースト(各自変更必須)
 var firebaseConfig = {
     apiKey: "AIzaSyCjt1RIVIksxdN-c4xMzliTvTRcPJrugfU",
     authDomain: "funny-core.firebaseapp.com",
